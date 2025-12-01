@@ -1,29 +1,29 @@
- Collaborative Code Editor
-Overview
-CodeSync Pro is a real-time collaborative code editor that allows multiple users to edit code simultaneously. Built with FastAPI (Python) backend and React/TypeScript frontend,
-it features real-time code synchronization, AI-powered autocomplete suggestions, and multi-user collaboration.
+# **Collaborative Code Editor**
 
-Room Management: Create and join rooms with unique room IDs
+## **Overview**
 
-AI Autocomplete: Context-aware code suggestions (mocked implementation)
+CodeSync Pro is a  collaborative code editor that allows multiple users to edit code simultaneously. Built with FastAPI (Python) backend and React/TypeScript frontend, it features real-time code synchronization, AI-powered autocomplete suggestions, and multi-user collaboration.
 
-Multi-language Support: Python, JavaScript, and TypeScript
+* Room Management: Create and join rooms with unique room IDs
+* AI Autocomplete: Context-aware code suggestions (mocked implementation)
+* Multi-language Support: Python, JavaScript, and TypeScript
+* WebSocket Communication: bidirectional communication
+* Responsive UI: Modern, dark-themed interface with Tailwind CSS
 
-WebSocket Communication: bidirectional communication
+---
 
-Responsive UI: Modern, dark-themed interface with Tailwind CSS
+## **Technology Stack**
 
-Technology Stack
-Backend: FastAPI, SQLAlchemy, WebSockets, PostgreSQL/SQLite
+**Backend:** FastAPI, SQLAlchemy, WebSockets, PostgreSQL/SQLite
+**Frontend:** React 18, TypeScript, Redux Toolkit, Tailwind CSS
+**Real-time:** WebSockets with connection management
+**Database:** PostgreSQL (with SQLite fallback for development)
 
-Frontend: React 18, TypeScript, Redux Toolkit, Tailwind CSS
+---
 
-Real-time: WebSockets with connection management
+## **Project Structure**
 
-Database: PostgreSQL (with SQLite fallback for development)
-
-Project Structure
-text
+```
 collab-code-editor/
 ├── backend/
 │   ├── app/
@@ -42,7 +42,7 @@ collab-code-editor/
 │   │   └── websocket/
 │   │       └── manager.py       # WebSocket connection management
 │   ├── requirements.txt         # Python dependencies
-│   ├── .env                    # Environment variables
+│   ├── .env                     # Environment variables
 │   └── README.md
 ├── frontend/
 │   ├── src/
@@ -59,23 +59,30 @@ collab-code-editor/
 │   │   │   └── websocket.ts     # WebSocket service
 │   │   ├── App.tsx              # Main App component
 │   │   └── main.tsx             # React entry point
-│   ├── index.html              # HTML template
-│   ├── package.json            # Node.js dependencies
-│   ├── vite.config.ts          # Vite configuration
-│   ├── tailwind.config.js      # Tailwind CSS configuration
-│   ├── postcss.config.js       # PostCSS configuration
-│   └── tsconfig.json           # TypeScript configuration
-└── README.md                   # This file
-Setup Instructions
-Prerequisites
-Python 3.8+ with pip
+│   ├── index.html               # HTML template
+│   ├── package.json             # Node.js dependencies
+│   ├── vite.config.ts           # Vite configuration
+│   ├── tailwind.config.js       # Tailwind CSS configuration
+│   ├── postcss.config.js        # PostCSS configuration
+│   └── tsconfig.json            # TypeScript configuration
+└── README.md
+```
 
-Node.js 16+ with npm
+---
 
-PostgreSQL (optional, SQLite included for development)
+## **Setup Instructions**
 
-Backend Setup
-bash
+### **Prerequisites**
+
+* Python 3.8+ with pip
+* Node.js 16+ with npm
+* PostgreSQL (optional, SQLite included for development)
+
+---
+
+## **Backend Setup**
+
+```bash
 # Clone and navigate to backend
 cd backend
 
@@ -97,8 +104,12 @@ cp .env.example .env
 
 # Run database migrations (creates tables)
 python -m app.main
-Frontend Setup
-bash
+```
+---
+
+## **Frontend Setup**
+
+```bash
 # Navigate to frontend
 cd frontend
 
@@ -107,35 +118,53 @@ npm install
 
 # Start development server
 npm run dev
-Environment Variables
-Backend (.env):
+```
 
-env
+---
+
+## **Environment Variables**
+
+### **Backend (.env)**
+
+```
 DATABASE_URL=postgresql://user:password@localhost:5432/codesync
 # OR for SQLite (development):
 # DATABASE_URL=sqlite:///./codesync.db
-Frontend (.env):
+```
 
-env
+### **Frontend (.env)**
+
+```
 VITE_API_URL=http://localhost:8000/api
 VITE_WS_URL=ws://localhost:8000
-Running the Application
-Start Backend Server:
+```
 
-bash
+---
+
+## **Running the Application**
+
+### **Start Backend Server**
+
+```bash
 cd backend
 python -m app.main
-Server runs at: http://localhost:8000
+```
 
-API Docs: http://localhost:8000/docs
+Server runs at: `http://localhost:8000`
+API Docs: `http://localhost:8000/docs`
+WebSocket: `ws://localhost:8000/ws/{room_id}`
 
-WebSocket: ws://localhost:8000/ws/{room_id}
+---
 
-Start Frontend Development Server:
+## **Start Frontend Development Server**
 
-bash
+```bash
 cd frontend
 npm run dev
-Frontend runs at: http://localhost:5173
+```
 
-Open browser and navigate to http://localhost:5173
+Frontend runs at: `http://localhost:5173`
+
+Open the browser and navigate to `http://localhost:5173`
+
+
