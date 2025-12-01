@@ -80,91 +80,63 @@ collab-code-editor/
 
 ---
 
-## **Backend Setup**
-
-```bash
-# Clone and navigate to backend
+Backend Setup
 cd backend
 
 # Create virtual environment
 python -m venv venv
 
-# Activate virtual environment
-# On Windows:
+# Activate (Windows)
 venv\Scripts\activate
-# On Mac/Linux:
+
+# Activate (Linux/Mac)
 source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Set up environment variables
+# Copy environment variables
 cp .env.example .env
-# Edit .env with your database credentials
 
-# Run database migrations (creates tables)
-python -m app.main
-```
----
+# Run backend server
+uvicorn app.main:app --reload
 
-## **Frontend Setup**
+Backend Runs At:
+http://localhost:8000
 
-```bash
-# Navigate to frontend
+API Docs:
+http://localhost:8000/docs
+
+Frontend Setup
 cd frontend
 
 # Install dependencies
 npm install
 
-# Start development server
+# Start frontend development server
 npm run dev
-```
 
----
+Frontend Runs At:
+http://localhost:5173
 
-## **Environment Variables**
-
-### **Backend (.env)**
-
-```
+Environment Variables
+Backend (.env)
 DATABASE_URL=postgresql://user:password@localhost:5432/codesync
-# OR for SQLite (development):
+# OR for SQLite:
 # DATABASE_URL=sqlite:///./codesync.db
-```
 
-### **Frontend (.env)**
-
-```
+Frontend (.env)
 VITE_API_URL=http://localhost:8000/api
 VITE_WS_URL=ws://localhost:8000
-```
 
----
-
-## **Running the Application**
-
-### **Start Backend Server**
-
-```bash
+Running the Application
+1️⃣ Start the Backend
 cd backend
-python -m app.main
-```
+uvicorn app.main:app --reload
 
-Server runs at: `http://localhost:8000`
-API Docs: `http://localhost:8000/docs`
-WebSocket: `ws://localhost:8000/ws/{room_id}`
-
----
-
-## **Start Frontend Development Server**
-
-```bash
+2️⃣ Start the Frontend
 cd frontend
 npm run dev
-```
 
-Frontend runs at: `http://localhost:5173`
-
-Open the browser and navigate to `http://localhost:5173`
-
-
+3️⃣ Open in Browser
+http://localhost:5173
